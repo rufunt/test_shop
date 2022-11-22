@@ -9,9 +9,10 @@ set :database, {:adapter =>'sqlite3', :database=>'barbershop.db'}
 class Client < ActiveRecord::Base
 end
 
-class Barbert < ActiveRecord::Base
+class Barber < ActiveRecord::Base
 end
 
 get '/' do
-	erb "Hello!"			
+	@barbers = Barber.all
+	erb :index			
 end
