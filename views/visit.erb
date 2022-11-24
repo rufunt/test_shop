@@ -5,23 +5,23 @@
 <form action="/visit" method="POST" role="form">
   <div class="form-group">
     <label>Ваше имя: </label>
-    <input type="text" name="username" class="form-control" placeholder="Ваше имя" value="<%= @username %>">
+    <input type="text" name="client[name]" class="form-control" placeholder="Ваше имя" value="">
   </div>
 
   <div class="form-group">
     <label>Ваш телефон: </label>
-    <input type="text" name="phone" class="form-control" placeholder="Ваш телефон" value="<%= @phone %>">
+    <input type="text" name="client.[phone]" class="form-control" placeholder="Ваш телефон" value="">
   </div>
 
   <div class="form-group">
     <label>Когда вас ждать?</label>
-    <input id="datetimepicker" type="text" name="datetime" class="form-control" placeholder="Введите дату и время">
+    <input id="datetimepicker" type="text" name="client[datestamp]" class="form-control" placeholder="Введите дату и время" value="">
   </div>
 
   <div class="form-group">
     <label>Выбрать парикмахера</label>
     
-    <select name="barber" class="form-control">
+    <select name="client[barber]" class="form-control">
       <% @barbers.each do |barber| %>
         <option <%= @barber == barber.name ? "selected" : '' %>><%= barber.name %></option>
       <% end %>
@@ -30,7 +30,7 @@
 
   <div class="form-group">
     <label>Выбрать цвет</label><br>
-    <select name="colorpicker">
+    <select name="client[color]" id="colorpicker">
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
       <option value="#a4bdfc">Blue</option>
@@ -46,14 +46,12 @@
     </select>
   </div>
   
-
-  
   <button type="submit" class="btn btn-primary">Записаться</button>
 </form>
 
 <script type="text/javascript">
 $(function() {
-  $('select[name="colorpicker"]').simplecolorpicker();
+  jQuery("#colorpicker").simplecolorpicker();
   jQuery('#datetimepicker').datetimepicker();
 })
 </script>

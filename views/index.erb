@@ -1,6 +1,6 @@
-<h2>Список парикмахеров</h2>
+<h2>Список клиентов</h2>
 
-<% @barbers.each do |barber|%>
-  <p><%= barber.id %>. Barber name: <%= barber.name %></p>
+<% @clients.each do |client|%>
+  <p><%= client.id %>. Client name: <%= client.name %></p>
   <hr>
 <% end %>

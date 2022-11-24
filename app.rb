@@ -12,7 +12,31 @@ end
 class Barber < ActiveRecord::Base
 end
 
-get '/' do
+class Contact < ActiveRecord::Base
+end
+
+
+
+before do
 	@barbers = Barber.all
+  @clients = Client.all
+end
+
+get '/' do
 	erb :index			
+end
+
+get '/visit' do
+	
+	erb :visit
+end
+
+post '/visit' do
+	
+
+	c = Client.new params[:client]
+  c.save
+	
+	erb "All, ok #{@username} ваш парикмахер #{@barber} будете окрашены в #{@color}"
+	
 end
