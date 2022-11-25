@@ -46,3 +46,7 @@ post '/visit' do
 	  erb :visit
   end
 end
+
+get '/client/:id' do
+	erb :client
+end
